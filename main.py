@@ -34,11 +34,11 @@ def display_chat_history():
     for message in st.session_state.messages:
         role = message["role"]
         content = message["content"]
-        
+
         # Determine CSS class based on role
         css_class = "user-message" if role == "user" else "assistant-message"
         display_name = "You" if role == "user" else "Assistant"
-        
+
         # Display message with styling
         st.markdown(
             f"""
@@ -57,7 +57,7 @@ def generate_response(prompt):
             {"role": "system", "content": "You are a helpful and knowledgeable assistant. Provide clear, accurate, and engaging responses."},
             {"role": "user", "content": prompt}
         ]
-        
+
         with st.spinner("Thinking..."):
             response = client.chat.completions.create(
                 model="grok-2-1212",
@@ -65,7 +65,7 @@ def generate_response(prompt):
                 temperature=0.7,
                 max_tokens=1000
             )
-            
+
         return response.choices[0].message.content
     except Exception as e:
         st.error(f"An error occurred: {str(e)}")
@@ -76,36 +76,36 @@ def main():
     st.markdown("""
     Grok Q&A アシスタントへようこそ！Grok AIを活用してどんな質問にも答えます。
     """)
-    
+
     # Display chat history
     display_chat_history()
-    
+
     # Input field for user question
     user_input = st.text_area("ここに質問を入力してください:", key="user_input", height=100)
-    
+
     # Submit button
     if st.button("Send", key="submit"):
         if user_input.strip():
             # Add user message to history
             st.session_state.messages.append({"role": "user", "content": user_input})
-            
+
             # Generate response
             response = generate_response(user_input)
-            
+
             if response:
                 # Add assistant response to history
                 st.session_state.messages.append({"role": "assistant", "content": response})
-                
+
             # Clear input field (by forcing a rerun)
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.warning("Please enter a question.")
-    
+
     # Clear chat button
     if st.button("Clear Chat"):
         st.session_state.messages = []
-        st.experimental_rerun()
-    
+        st.rerun()
+
     # Footer
     st.markdown("---")
     st.markdown("Powered by Grok AI 🚀")
