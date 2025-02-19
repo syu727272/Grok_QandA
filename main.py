@@ -107,5 +107,4 @@ def main():
     st.markdown("Powered by Grok AI 🚀")
 
 if __name__ == "__main__":
-    import streamlit.web.bootstrap as bootstrap
-    bootstrap.run(main, "", args=["--server.address=0.0.0.0", "--server.port=8501"], flag_options={})
+    main()
