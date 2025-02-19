@@ -70,14 +70,14 @@ def generate_response(prompt):
 def main():
     st.title("🤖 Grok Q&A Assistant")
     st.markdown("""
-    Welcome to the Grok Q&A Assistant! Ask any question and get intelligent responses powered by Grok AI.
+    Grok Q&A アシスタントへようこそ！Grok AIを活用してどんな質問にもインテリジェントな回答を得ることができます。
     """)
     
     # Display chat history
     display_chat_history()
     
     # Input field for user question
-    user_input = st.text_area("Ask your question here:", key="user_input", height=100)
+    user_input = st.text_area("ここに質問を入力してください:", key="user_input", height=100)
     
     # Submit button
     if st.button("Send", key="submit"):
