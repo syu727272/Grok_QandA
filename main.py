@@ -17,8 +17,12 @@ with open("styles.css") as f:
 # Initialize OpenAI client
 @st.cache_resource
 def get_client():
+    api_key = os.environ.get("XAI_API_KEY")
+    if not api_key:
+        st.error("XAI_API_KEY is not set in environment variables")
+        return None
     return OpenAI(
-        api_key=os.environ["XAI_API_KEY"],
+        api_key=api_key,
         base_url="https://api.x.ai/v1"
     )
 
