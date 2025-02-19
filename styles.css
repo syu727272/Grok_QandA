@@ -1,0 +1,32 @@
+.chat-message {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-message {
+    background-color: #F0F2F6;
+}
+
+.assistant-message {
+    background-color: #E8F0FE;
+}
+
+.message-header {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.error-message {
+    color: #ff4b4b;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #ffe5e5;
+    margin: 1rem 0;
+}
+
+.stTextInput>div>div>input {
+    min-height: 100px;
+}
