@@ -70,7 +70,7 @@ def generate_response(prompt):
 def main():
     st.title("🤖 Grok Q&A Assistant")
     st.markdown("""
-    Grok Q&A アシスタントへようこそ！Grok AIを活用してどんな質問にもインテリジェントな回答を得ることができます。
+    Grok Q&A アシスタントへようこそ！Grok AIを活用してどんな質問にも答えます。
     """)
     
     # Display chat history
